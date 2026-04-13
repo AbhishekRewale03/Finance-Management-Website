@@ -247,6 +247,11 @@ export default function LoginPage() {
               {isSignup ? "Login" : "Sign Up"}
             </button>
           </p>
+          <p className="text-sm text-muted-foreground mt-4 text-center">
+  Demo Account: <br />
+  Email: <span className="font-medium">abhishek@gmail.com</span> <br />
+  Password: <span className="font-medium">abhishek123</span>
+</p>
         </CardContent>
       </Card>
     </div>
