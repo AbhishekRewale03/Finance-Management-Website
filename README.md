@@ -100,7 +100,7 @@ Track your income, expenses, budgets, and financial goals with a clean, responsi
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/money-manager.git
+git clone https://github.com/AbhishekRewale03/Finance-Management-Website.git
 
 # Navigate to project
 cd money-management
