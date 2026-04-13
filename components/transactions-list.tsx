@@ -29,6 +29,7 @@ import { Trash2Icon, PencilIcon } from "lucide-react";
 import { useCurrency } from "@/app/context/currency-context";
 import { useToast } from "@/hooks/use-toast";
 import { DotLoader } from "./DotLoader";
+import { useAuth } from "@/hooks/useAuth";
 
 interface TransactionsListProps {
   transactions: Transaction[];
@@ -82,9 +83,23 @@ export function TransactionsList({
 
   const finalData = limit ? filtered.slice(0, limit) : filtered;
 
+  const { user } = useAuth();
+  const isRestrictedUser = user?.email === "abhishek@gmail.com";
+
   // ✅ DELETE HANDLER
   const handleDelete = async () => {
     if (!deleteTarget) return;
+
+    
+
+    if (isRestrictedUser) {
+      toast({
+        title: "Restricted Action",
+        description: "Deleting transactions is disabled for this account",
+        variant: "destructive",
+      });
+      return;
+    }
 
     setLoadingDelete(true);
 
@@ -265,6 +280,7 @@ export function TransactionsList({
 
                         <Button
                           variant="destructive"
+                          
                           onClick={handleDelete}
                           disabled={loadingDelete}
                         >
