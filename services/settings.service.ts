@@ -15,7 +15,7 @@ export interface UserSettings {
 
 // ✅ DEFAULTS
 export const defaultSettings: UserSettings = {
-  theme: "light",
+  theme: "dark",
   animations: true,
   budgetAlerts: true,
   paymentReminders: true,
