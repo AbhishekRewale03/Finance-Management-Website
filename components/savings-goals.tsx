@@ -25,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PencilIcon, Trash2, PlusIcon } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 export function SavingsGoals({
   goals,
@@ -100,8 +101,21 @@ export function SavingsGoals({
   // ===============================
   // 🗑️ DELETE GOAL
   // ===============================
+  const { user } = useAuth();
+
+  const isRestrictedUser = user?.email === "abhishek@gmail.com";
+
   const handleDelete = async (goal: Goal) => {
     if (!goal?.id) return;
+
+    if (isRestrictedUser) {
+      toast({
+        title: "Restricted Action",
+        description: "Deleting Goals is disabled for this account",
+        variant: "destructive",
+      });
+      return;
+    }
 
     try {
       setLoadingDelete(true);
