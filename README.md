@@ -1,6 +1,6 @@
 # 💰 Money Manager – Finance Dashboard
 
-A modern, full-stack **Finance Management Dashboard** built with **Next.js 15**, **Firebase**, **TypeScript** and **Tailwind CSS**.
+A modern, full-stack **Finance Management Dashboard** built with **Next.js 16**, **Firebase**, **TypeScript** and **Tailwind CSS**.
 Track your income, expenses, budgets, and financial goals with a clean, responsive UI and real-time updates.
 
 ---
@@ -72,11 +72,11 @@ Track your income, expenses, budgets, and financial goals with a clean, responsi
 
 ### Frontend
 
-* **Next.js 15 (App Router)**
+* **Next.js 16 (App Router)**
 * **React 19**
 * **TypeScript**
 * **Tailwind CSS**
-* **shadcn/ui + Radix UI**
+* **shadcn/ui + Radix UI primitives**
 * **Recharts**
 
 ### Backend / Services
@@ -222,6 +222,17 @@ This project is licensed under the MIT License.
 ## 🚀 Live Demo
 
 👉 *Add your deployed link here*
+
+---
+
+## 🔐 Demo Account
+
+Use the following credentials to explore the app:
+
+Email: abhishek@gmail.com  
+Password: abhishek123
+
+> Note: Some actions like deleting transactions may be restricted in demo mode.
 
 ---
 
