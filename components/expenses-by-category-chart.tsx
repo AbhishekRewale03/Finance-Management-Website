@@ -50,8 +50,10 @@ export function ExpensesByCategoryChart({
   transactions
     .filter((t) => t.type === "expense")
     .forEach((t) => {
-      categoryMap[t.categoryName] =
-        (categoryMap[t.categoryName] || 0) + t.amount;
+      const category = t.categoryName ? t.categoryName : "Goals";
+      categoryMap[category] =
+        // categoryMap[t.categoryName] =
+        (categoryMap[category] || 0) + t.amount;
     });
 
   // ✅ Convert currency
