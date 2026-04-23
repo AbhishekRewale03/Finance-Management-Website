@@ -84,7 +84,7 @@ export function TransactionsList({
   const finalData = limit ? filtered.slice(0, limit) : filtered;
 
   const { user } = useAuth();
-  const isRestrictedUser = user?.email === "abhish@gmail.com";
+  const isRestrictedUser = user?.email === "abhishek@gmail.com";
 
   // ✅ DELETE HANDLER
   const handleDelete = async () => {
