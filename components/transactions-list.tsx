@@ -84,7 +84,7 @@ export function TransactionsList({
   const finalData = limit ? filtered.slice(0, limit) : filtered;
 
   const { user } = useAuth();
-  const isRestrictedUser = user?.email === "abhishek@gmail.com";
+  // const isRestrictedUser = user?.email === "abhishek@gmail.com";
 
   // ✅ DELETE HANDLER
   const handleDelete = async () => {
@@ -92,14 +92,14 @@ export function TransactionsList({
 
     
 
-    if (isRestrictedUser) {
-      toast({
-        title: "Restricted Action",
-        description: "Deleting transactions is disabled for this account",
-        variant: "destructive",
-      });
-      return;
-    }
+    // if (isRestrictedUser) {
+    //   toast({
+    //     title: "Restricted Action",
+    //     description: "Deleting transactions is disabled for this account",
+    //     variant: "destructive",
+    //   });
+    //   return;
+    // }
 
     setLoadingDelete(true);
 
