@@ -14,6 +14,8 @@ import { Label } from "@/components/ui/label";
 
 import { useToast } from "@/hooks/use-toast";
 import { DotLoader } from "@/components/DotLoader"; // adjust if path differs
+import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 const getAuthErrorMessage = (error: any) => {
   const code = error?.code || "";
@@ -113,6 +115,46 @@ export default function LoginPage() {
       toast({
         title: "Authentication failed",
         description: getAuthErrorMessage(err),
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDemoLogin = async () => {
+    try {
+      setLoading(true);
+
+      // ✅ STORE RESPONSE
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        "abhishek@gmail.com",
+        "abhishek123",
+      );
+
+      // const user = userCredential.user;
+
+      // ✅ Update name if needed
+      // if (!user.displayName || user.displayName !== "Demo User") {
+      //   await updateProfile(user, {
+      //     displayName: "Demo User",
+      //   });
+      // }
+
+      toast({
+        title: "Demo Login Successful",
+        description: "Welcome!",
+        variant: "success",
+      });
+
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+
+      toast({
+        title: "Demo Login Failed",
+        description: "Something went wrong",
         variant: "destructive",
       });
     } finally {
@@ -247,11 +289,20 @@ export default function LoginPage() {
               {isSignup ? "Login" : "Sign Up"}
             </button>
           </p>
-          <p className="text-sm text-muted-foreground mt-4 text-center">
-  Demo Account: <br />
-  Email: <span className="font-medium">abhishek@gmail.com</span> <br />
-  Password: <span className="font-medium">abhishek123</span>
-</p>
+          {/* Demo Section */}
+          <div className="mt-4 text-center">
+            <button
+              onClick={handleDemoLogin}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 
+    text-white py-2 rounded-lg hover:scale-105 transition-all duration-300"
+            >
+              Try Demo Account
+            </button>
+
+            <p className="text-xs text-gray-500 mt-2">
+              Instantly explore the app without creating an account
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>

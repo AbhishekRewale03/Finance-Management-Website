@@ -32,6 +32,7 @@ export function Sidebar({ className, onNavigate }: SidebarProps) {
   const router = useRouter();
 
   const { user } = useAuth();
+  
 
   const routes = [
     { href: "/", icon: <HomeIcon className="h-5 w-5" />, label: "Dashboard" },
